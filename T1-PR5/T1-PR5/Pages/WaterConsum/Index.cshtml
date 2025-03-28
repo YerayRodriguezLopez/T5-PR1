@@ -1,0 +1,68 @@
+﻿@page
+@model T1_PR5.Pages.WaterConsum.IndexModel
+@{
+	ViewData["Title"] = "ConsumsList";
+}
+<h3>@ViewData["Title"]</h3>
+<hr />
+<p>
+	<a asp-page="./Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-success table-striped table-responsive table-hover">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Consums[0].Id)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Consums[0].Region)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Consums[0].City)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Consums[0].Year)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Consums[0].Consum)
+			<th>
+				Action
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model.Consums != null && Model.Consums.Any())
+		{
+			foreach (var item in Model.Consums)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Id)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Region)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.City)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Year)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Consum)
+					</td>
+					<td>
+						<a asp-page="./Edit" asp-route-itemid="@item.Id" class="btn btn-primary">Edit</a> |
+						<a asp-page="./Delete" asp-route-itemid="@item.Id" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+			}
+		}
+		else
+		{
+			<tr>
+				<td colspan="6" class="text-center">No Consumes found</td>
+			</tr>
+		}
+	</tbody>
+</table>

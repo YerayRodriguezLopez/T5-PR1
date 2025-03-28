@@ -1,0 +1,69 @@
+﻿@page
+@model T1_PR5.Pages.System.CreateSystemModel
+@{
+	ViewData["Title"] = "Create System";
+}
+
+<h3>@ViewData["Title"]</h3>
+<hr />
+<div class="row shadow">
+	<div class="col-md-4">
+		<form method="post">
+			<div class="form-group">
+				<label asp-for="Systems.Type" class="control-label"></label>
+				<input asp-for="Systems.Type" class="form-control" />
+				<span asp-validation-for="Systems.Type" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Systems.SunHours" class="control-label"></label>
+				<input asp-for="Systems.SunHours" class="form-control" />
+				<span asp-validation-for="Systems.SunHours" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Systems.WindSpeed" class="control-label"></label>
+				<input asp-for="Systems.WindSpeed" class="form-control" />
+				<span asp-validation-for="Systems.WindSpeed" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Systems.WaterFlow" class="control-label"></label>
+				<input asp-for="Systems.WaterFlow" class="form-control" />
+				<span asp-validation-for="Systems.WaterFlow" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Systems.Ratio" class="control-label"></label>
+				<input asp-for="Systems.Ratio" class="form-control" />
+				<span asp-validation-for="Systems.Ratio" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Systems.GeneratedEnergy" class="control-label"></label>
+				<input asp-for="Systems.GeneratedEnergy" class="form-control" />
+				<span asp-validation-for="Systems.GeneratedEnergy" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Systems.CostPerKWh" class="control-label"></label>
+				<input asp-for="Systems.CostPerKWh" class="form-control" />
+				<span asp-validation-for="Systems.CostPerKWh" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Systems.PricePerKWh" class="control-label"></label>
+				<input asp-for="Systems.PricePerKWh" class="form-control" />
+				<span asp-validation-for="Systems.PricePerKWh" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Systems.DateTime" class="control-label"></label>
+				<input asp-for="Systems.DateTime" class="form-control" />
+				<span asp-validation-for="Systems.DateTime" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Create" class="btn btn-primary" />
+				<a class="btn btn-secondary" asp-page="./Index">Back to List</a>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

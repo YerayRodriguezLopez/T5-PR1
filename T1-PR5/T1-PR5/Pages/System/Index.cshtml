@@ -1,0 +1,100 @@
+﻿@page
+@model T1_PR5.Pages.System.IndexModel
+@{
+	ViewData["Title"] = "SimulationsList";
+}
+
+<h3>@ViewData["Title"]</h3>
+<hr />
+<p>
+	<a asp-page="./CreateSystem" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-success table-striped table-responsive table-hover">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Systems[0].Id)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Systems[0].Type)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Systems[0].SunHours)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Systems[0].WindSpeed)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Systems[0].WaterFlow)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Systems[0].Ratio)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Systems[0].GeneratedEnergy)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Systems[0].CostPerKWh)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Systems[0].PricePerKWh)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Systems[0].DateTime)
+			</th>
+			<th>
+				Action
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model.Systems != null && Model.Systems.Any())
+		{
+			foreach (var item in Model.Systems)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Id)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Type)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.SunHours)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.WindSpeed)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.WaterFlow)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Ratio)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.GeneratedEnergy)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.CostPerKWh)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.PricePerKWh)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.DateTime)
+					</td>
+					<td>
+						<a asp-page="./Edit" asp-route-itemid="@item.Id" class="btn btn-primary">Edit</a> |
+						<a asp-page="./Delete" asp-route-itemid="@item.Id" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+			}
+		}
+		else
+		{
+			<tr>
+				<td colspan="11" class="text-center">No Simulations found</td>
+			</tr>
+		}
+	</tbody>
+</table>

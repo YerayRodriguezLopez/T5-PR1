@@ -1,0 +1,39 @@
+﻿@page
+@model T1_PR5.Pages.EnergyIndicator.DeleteModel
+@{
+	ViewData["Title"] = "Delete";
+}
+<h3>@ViewData["Title"]</h3>
+<hr />
+
+<div class="row shadow">
+	<input type="hidden" asp-for="indicator.Id" />
+	<div class="col-9">
+		<div class="form-group">
+			<label asp-for="indicator.Year" class="control-label"></label>
+			<input asp-for="indicator.Year" class="form-control" readonly />
+		</div>
+		<div class="form-group">
+			<label asp-for="indicator.CleanProduction" class="control-label"></label>
+			<input asp-for="indicator.CleanProduction" class="form-control" readonly />
+		</div>
+		<div class="form-group">
+			<label asp-for="indicator.GasolineConsum" class="control-label"></label>
+			<input asp-for="indicator.GasolineConsum" class="form-control" readonly />
+		</div>
+		<div class="form-group">
+			<label asp-for="indicator.ElectricDemand" class="control-label"></label>
+			<input asp-for="indicator.ElectricDemand" class="form-control" readonly />
+		</div>
+		<div class="form-group">
+			<label asp-for="indicator.DisposableProduction" class="control-label"></label>
+			<input asp-for="indicator.DisposableProduction" class="form-control" readonly />
+		</div>
+		<form method="post">
+			<div class="form-group mt-2">
+				<input type="submit" value="Delete" class="btn btn-danger" />
+				<a class="btn btn-secondary" asp-page="./Index">Back to List</a>
+			</div>
+		</form>
+	</div>
+</div>

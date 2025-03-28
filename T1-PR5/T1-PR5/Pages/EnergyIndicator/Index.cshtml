@@ -1,0 +1,76 @@
+﻿@page
+@model T1_PR5.Pages.EnergyIndicator.IndexModel
+@{
+	ViewData["Title"] = "Energy Indicator";
+}
+<h3>@ViewData["Title"]</h3>
+<hr />
+
+<p>
+	<a asp-page="./Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-success table-striped table-responsive table-hover">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.indicator[0].Id)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.indicator[0].Year)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.indicator[0].CleanProduction)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.indicator[0].GasolineConsum)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.indicator[0].ElectricDemand)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.indicator[0].DisposableProduction)
+			</th>
+			<th>
+				Action
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model.indicator != null && Model.indicator.Any())
+		{
+			foreach (var item in Model.indicator)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Id)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Year)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.CleanProduction)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.GasolineConsum)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.ElectricDemand)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.DisposableProduction)
+					</td>
+					<td>
+						<a asp-page="./Edit" asp-route-itemid="@item.Id" class="btn btn-primary">Edit</a> |
+						<a asp-page="./Delete" asp-route-itemid="@item.Id" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+			}
+		}
+		else
+		{
+			<tr>
+				<td colspan="7" class="text-center"> No Indicators Found</td>
+			</tr>
+		}
+		</tbody>
+		</table>

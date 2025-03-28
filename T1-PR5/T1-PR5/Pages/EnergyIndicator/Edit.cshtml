@@ -1,0 +1,44 @@
+﻿@page
+@model T1_PR5.Pages.EnergyIndicator.EditModel
+@{
+	ViewData["Title"] = "Edit";
+}
+<h3>@ViewData["Title"]</h3>
+<hr />
+
+<div class="row shadow">
+	<div class="col-md-4">
+		<form method="post">
+			<input type="hidden" asp-for="indicator.Id" />
+			<div class="form-group">
+				<label asp-for="indicator.Year" class="control-label"></label>
+				<input asp-for="indicator.Year" class="form-control" />
+				<span asp-validation-for="indicator.Year" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="indicator.CleanProduction" class="control-label"></label>
+				<input asp-for="indicator.CleanProduction" class="form-control" />
+				<span asp-validation-for="indicator.CleanProduction" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="indicator.GasolineConsum" class="control-label"></label>
+				<input asp-for="indicator.GasolineConsum" class="form-control" />
+				<span asp-validation-for="indicator.GasolineConsum" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="indicator.ElectricDemand" class="control-label"></label>
+				<input asp-for="indicator.ElectricDemand" class="form-control" />
+				<span asp-validation-for="indicator.ElectricDemand" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="indicator.DisposableProduction" class="control-label"></label>
+				<input asp-for="indicator.DisposableProduction" class="form-control" />
+				<span asp-validation-for="indicator.DisposableProduction" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Create" class="btn btn-primary" />
+				<a class="btn btn-secondary" asp-page="./Index">Back to List</a>
+			</div>
+		</form>
+	</div>
+</div>

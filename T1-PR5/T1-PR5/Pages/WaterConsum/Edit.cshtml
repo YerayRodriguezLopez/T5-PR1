@@ -1,0 +1,45 @@
+﻿@page
+@model T1.PR5.Pages.WaterConsum.EditModel
+@{
+	ViewData["Title"] = "Editar sistema";
+}
+
+<h3>@ViewData["Title"]</h3>
+<hr />
+<div class="row shadow">
+	<div class="col-md-4">
+		<form method="post">
+			<input type="hidden" asp-for="Consum.Id" />
+			<div class="form-group">
+				<label asp-for="Consum.Region" class="control-label"></label>
+				<input asp-for="Consum.Region" class="form-control" />
+				<span asp-validation-for="Consum.Region" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Consum.City" class="control-label"></label>
+				<input asp-for="Consum.City" class="form-control" />
+				<span asp-validation-for="Consum.City" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Consum.Year" class="control-label"></label>
+				<input asp-for="Consum.Year" class="form-control" />
+				<span asp-validation-for="Consum.Year" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Consum.Consum" class="control-label"></label>
+				<input asp-for="Consum.Consum" class="form-control" />
+				<span asp-validation-for="Consum.Consum" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Create" class="btn btn-primary" />
+				<a class="btn btn-secondary" asp-page="./Index">Back to List</a>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
